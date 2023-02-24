@@ -1,0 +1,18 @@
+<template>
+  <img src={logo} style="margin-top: -45px;">
+  <h1>KeyBoard Shop</h1>
+  <div class="container-img">
+    <div class="container">
+      <template iterator:it={bannerImg}>
+        <div key={it.value} class="inner">
+          <img src={it.value}>
+        </div>
+      </template>
+    </div>
+  </div>
+  <div class="btn-group">
+    <template iterator:it={btnCnt}>
+      <button key={it.value} class={it.value} onclick={handleBannerBtn}></button>
+    </template>
+  </div>
+</template>

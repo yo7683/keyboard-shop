@@ -1,0 +1,75 @@
+<template>
+    <div class="head" style="width: 100%; height:40px;">
+        <div class="submit" style="float: right;">
+            <lightning-button variant="brand" label="등록하기" onclick={onSubmit} class="slds-float_right"></lightning-button>
+        </div>
+        <div class="submit">
+            <lightning-button variant="brand-outline" label=" 1개 행 추가" onclick={addRow}></lightning-button>
+        </div>
+        <div class="submit">
+            <lightning-button variant="brand-outline" label=" 5개 행 추가" onclick={add5Row}></lightning-button>
+        </div>
+        <div class="submit">
+            <lightning-button variant="brand-outline" label="1개 행 복사" onclick={copyRow}></lightning-button>
+        </div>
+        <div class="submit">
+            <lightning-button variant="brand-outline" label="5개 행 복사" onclick={copy5Row}></lightning-button>
+        </div>
+        <div class="submit">
+            <lightning-button variant="destructive-text" label="전체 행 삭제" onclick={deleteAll}></lightning-button>
+        </div>
+    </div>
+    <div>
+        <div class="info-head-no">No</div>
+        <div style="display:inline-block; width:10%; font-weight: bold; text-align:center;">키보드 이미지</div>
+        <template iterator:it={head}>
+            <div key={it.value} class="info-head">{it.value.productInfo}</div>
+        </template>
+    </div>
+    <template iterator:it={item}>
+        <div key={it.value}>
+            <div class="info-body" style="width: 2%;">{it.value.index}</div>
+            <input type="file" class="info-body" style="width: 8%;" id="fileload" accept={fileAcceptType} data-id={it.value.index} value={it.value.file} onchange={fileUpload} multiple>
+            <!-- <div class="info-body" style="width: 3%;" data-fileindex={it.value.index}></div> -->
+            <!-- <template if:true={deleteFile}> -->
+                <button onclick={fileDelete} data-id={it.value.index}>삭제</button>
+            <!-- </template> -->
+            <div class="info-body">
+                <lightning-combobox
+                data-id={it.value.index}
+                name="brand"
+                value={it.value.brand}
+                placeholder="브랜드 선택 좀"
+                options={brandOptions}
+                onchange={brandChange}
+                ></lightning-combobox>
+            </div>
+            <div class="info-body">
+                <lightning-combobox
+                data-id={it.value.index}
+                name="keyboardType"
+                value={it.value.keyboardType}
+                placeholder="키보드 선택 좀"
+                options={keyboardOptions}
+                onchange={keyboardChange}
+                ></lightning-combobox>
+            </div>
+            <div class="info-body">
+                <lightning-input type="text" placeholder="상품이름을 입력해주세요~" data-id={it.value.index} value={it.value.productName} onchange={productNameChange}></lightning-input>
+            </div>
+            <div class="info-body">
+                <lightning-input type="text" placeholder="키보드 이름을 입력해" data-id={it.value.index} value={it.value.keyboardName} onchange={keyboardNameChange}></lightning-input>
+            </div>
+            <div class="info-body">
+                <lightning-input type="text" placeholder="상품 수량 입력ㅎ" data-id={it.value.index} value={it.value.productNum} onchange={productNumChange}></lightning-input>
+            </div>
+            <div class="info-body">
+                <lightning-input type="text" placeholder="상품 가격 ㄱㄱ" data-id={it.value.index} value={it.value.productPrice} onchange={productPriceChange} maxlength="8"></lightning-input>
+            </div>
+            <div class="info-body" style="width: 1%;">
+                <lightning-button-icon icon-name="utility:delete" alternative-text="행 삭제" data-id={it.value.index} onclick={deleteRow}></lightning-button-icon>
+            </div>
+        </div>
+    </template>
+    <c-ig_custom-toast></c-ig_custom-toast>
+</template>

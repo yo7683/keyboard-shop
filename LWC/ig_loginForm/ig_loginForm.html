@@ -1,0 +1,15 @@
+<template>
+    <div class="login-box">
+        <h3 style="font-weight: bolder; font-size: 40px;">LOGIN</h3>
+        <div class="id-box">
+            <input class="id-input-box" type="text" value='' onkeyup={handleUserId} placeholder="이메일을 입력 해주세요."></lightning-input>
+        </div>
+        <div class="pwd-box">
+            <input class="pwd-input-box" type="password" value='' onkeyup={handleUserPwd} placeholder="비밀번호를 입력 해주세요."></lightning-input>
+        </div>
+        <div class="find-pwd" onclick={findPassword}>비밀번호 찾기</div> <br/><br/>
+        <div class="login-btn" title="로그인" onclick={doLogin}>로그인</div>
+        <div class="register-btn" title="회원가입" onclick={moveSignUp}>회원가입</div>
+    </div>
+    <c-ig_custom-toast></c-ig_custom-toast>
+</template>

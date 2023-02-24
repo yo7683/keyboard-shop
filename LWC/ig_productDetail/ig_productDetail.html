@@ -1,0 +1,162 @@
+<template>
+    <div class="item">
+        <div class="item-img">
+            <img src={img}>
+        </div>
+        <div class="item-info">
+            <div class="brand">
+                {brand}
+            </div>
+            <div class="product-name">
+                {productName}
+            </div>
+            <div class="price">
+                ₩{productPrice}
+            </div>
+            <div class="option">
+                <div class="count">
+                    <input class="count-input" type="text" value={count} onkeyup={countChange}>
+                    <div style="width: 25px; display:grid">
+                        <button class="count-btn plus" onclick={countPlus}>></button>
+                        <button class="count-btn minus" onclick={countMinus}>></button>
+                    </div>
+                </div>
+                <div class="purchase-price-box">
+                    <div class="purchase-price">구매 가격 : ₩{purchasePrice}</div>
+                </div>
+            </div>
+            <div>
+                <button class="buy" variant="brand" onclick={onBuy}>구매하기</button>
+            </div>
+            <div>
+                <button class="basket" variant="brand-outline" onclick={onBasket}>장바구니 담기</button>
+            </div>
+        </div>
+    </div>
+    <div>&nbsp;</div>
+    <lightning-tabset>
+        <lightning-tab label="리뷰">
+            <div class="star-rating space-x-4 mx-auto">
+                <input class="stars" type="radio" id="5" name="rating" value="5" v-model="ratings"/>
+                <label for="5" class="star pr-4">★</label>
+                <input class="stars" type="radio" id="4" name="rating" value="4" v-model="ratings"/>
+                <label for="4" class="star">★</label>
+                <input class="stars" type="radio" id="3" name="rating" value="3" v-model="ratings"/>
+                <label for="3" class="star">★</label>
+                <input class="stars" type="radio" id="2" name="rating" value="2" v-model="ratings"/>
+                <label for="2" class="star">★</label>
+                <input class="stars" type="radio" id="1" name="rating" value="1" v-model="ratings" />
+                <label for="1" >★</label>
+            </div>
+            <div class="review-box">
+                <div class="review-text">
+                    <lightning-textarea class="slds-textarea review" name="review" value="" label="리뷰 작성" maxlength="5000" rows=10></lightning-textarea>
+                </div>
+                <div class="review-btn">
+                    <lightning-button variant="brand" label="등록" onclick={onSubmit} class="slds-button slds-button_brand" style="float:right"></lightning-button>
+                    <div class="filterBox">
+                        <div class="filter">
+                            <lightning-combobox
+                                name="filter"
+                                value={filter}
+                                options={filterOptions}
+                                onchange={filterChange}>
+                            </lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <template iterator:it={item}>
+                        <div key={it.value}>
+                            <div class="contents-review">
+                                <div> 평점 : {it.value.grade}</div>
+                                <div>{it.value.review}</div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <div class="pageNumBtnBox" style="text-align: center;">
+                    <button value="start" onclick={onArrowClick}>{start}</button>
+                    <button value="prev" onclick={onArrowClick}>{prev}</button>
+                    <template iterator:it={pageNumList}>
+                        <div class="pageNumBtn" key={it.value} style="display: inline-block;">
+                            <button value={it.value} onclick={onPaging}>{it.value}</button>
+                        </div>
+                    </template>
+                    <button value="next" onclick={onArrowClick}>></button>
+                    <button value="end" onclick={onArrowClick}>>></button>
+                </div>
+            </div>
+        </lightning-tab>
+        <lightning-tab label="Q&A">
+            Q&A~
+        </lightning-tab>
+    </lightning-tabset>
+    <!-- 모달 창 -->
+    <template if:true={isShowModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="font-weight: bold;">결제</h2>
+                </header>
+            
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="pay-box">
+                        <section class="info-box">
+                            <div class="pay-img">
+                                <img src={img}>
+                            </div>
+                            <div class="pay-info">
+                                <div class="pay-info pay-brand">{brand}</div>
+                                <div class="pay-info pay-name">{productName}</div>
+                                <div class="pay-info" style="display: inline-flex; font-size: 17px; padding-top: 60px; padding-right: 23px">
+                                    <div class="pay-count">{count}</div>
+                                    <div class="pay-price">₩{productPrice}</div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="price-info">
+                            <ul>
+                                <li>
+                                    <div class="price-left">소계</div>
+                                    <div class="price-right">₩{productPrice}</div>
+                                </li>
+                                <li style="border-bottom: solid 1px darkgray;">
+                                    <div class="price-left">수량</div>
+                                    <div class="price-right shoong">{count}</div>
+                                </li>
+                                <li style="padding-top: 20px; padding-bottom: 20px; font-weight: bold; font-size: 20px;">
+                                    <div class="price-left">총계</div>
+                                    <div class="price-right sum">₩{purchasePrice}</div>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="pay-btn-box">
+                            <div class="btn-box">
+                                <button class="payment pay-basket">장바구니</button>
+                                <button class="payment pay" onclick={onPay}>결제</button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal}>취소</button>
+                </footer>
+            
+            </div>
+            </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <c-ig_custom-toast></c-ig_custom-toast>
+</template>

@@ -1,0 +1,61 @@
+<template>
+    <div class="content-box">
+        <h1>{path}</h1>
+        <div class="myPayment-box">
+            <div class="header">
+                <!-- <div class="pro-header-order-num">
+                    <p>주문 번호</p>
+                </div> -->
+                <div class="pro-header-img"></div>
+                <div class="pro-header-name">
+                    <p>상품 명</p>
+                </div>
+                <div class="pro-header-count">
+                    <p>구매 수량</p>
+                </div>
+                <div class="pro-header-price">
+                    <p>구매 가격</p>
+                </div>
+                <div class="pro-header-payment-date">
+                    <p>구매 일자</p>
+                </div>
+            </div>
+            <template iterator:it={buyItem}>
+                <div key={it.value} class="item-box">
+                    <!-- <div class="pro-order-num">
+                        <p>{it.value.orderNum}</p>
+                    </div> -->
+                    <div class="pro-img">
+                        <template if:true={it.value.image}>
+                            <img src={it.value.image}/>
+                        </template>
+                        <template if:false={it.value.image}>
+                            <img src=""/>
+                        </template>
+                    </div>
+                    <div class="pro-name">
+                        <p>{it.value.name}</p>
+                    </div>
+                    <div class="pro-count">
+                        <p>{it.value.count}</p>
+                    </div>
+                    <div class="pro-price">
+                        <p>{it.value.price}</p>
+                    </div>
+                    <div class="pro-payment-date">
+                        <p>{it.value.paymentDate}</p>
+                    </div>
+                    <div class="btn-group">
+                        <div><button class="repurchase">재 구매</button></div>
+                        <div><button class="pro-detail" onclick={viewDetail} data-id={it.value.id}>상세보기</button></div>
+                        <!-- <div><button class="pay-cancle">구매취소</button></div> -->
+                    </div>
+                </div>
+                <div key={it.value.name} class="line"></div>
+            </template>
+            <template if:false={buyItem}>
+                구매하신 상품이 존재하지 않습니다.
+            </template>
+        </div>
+    </div>
+</template>

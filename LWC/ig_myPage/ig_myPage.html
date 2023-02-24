@@ -1,0 +1,19 @@
+<template>
+    <div class="wrapper">
+        <div class="sidebar">
+            <c-ig_my-page-sidebar ongetcurrentitem={handleCurrentPage}></c-ig_my-page-sidebar>
+        </div>
+        <div class="main-page">
+            <template if:true={pages.isPaymentPro}>
+                <c-ig_payment-product></c-ig_payment-product>
+            </template>
+            <template if:true={pages.isBasket}>
+                <c-ig_basket-product></c-ig_basket-product>
+            </template>
+            <template if:true={pages.isMyProfile}>
+                <c-ig_my-profile></c-ig_my-profile>
+            </template>
+        </div>
+    </div>
+    
+</template>

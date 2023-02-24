@@ -1,0 +1,30 @@
+.info-head {
+    display: inline-block;
+    /* border: solid 1px black; */
+    width: 14%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.info-head-no {
+    display: inline-block;
+    /* border: solid 1px black; */
+    width: 2%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.info-body{
+    display: inline-block;
+    /* border: solid 1px black; */
+    width: 14%;
+}
+
+.submit {
+    display: inline-block;
+    float: left;
+}
+
+.row {
+    display: inline-block;
+}

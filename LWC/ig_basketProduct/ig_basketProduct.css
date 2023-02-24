@@ -1,0 +1,291 @@
+.content-box {
+    border-top: 3px solid rgb(165, 164, 164);
+    margin-top: 150px;
+    width: 1050px;
+}
+
+.content-box h1 {
+    margin-top: -23px;
+    margin-bottom: 30px;
+}
+
+.basket-box {
+    padding-bottom: 50px;
+}
+
+.item-box {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    box-shadow: 2px 4px 12px gray;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.item-img {
+    width: 30%;
+    height: 100%;
+    padding: 10px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.item-contents {
+    width: 70%;
+    height: 100%;
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.productName {
+    width: 50%;
+    text-align: left;
+}
+
+.productNum {
+    width: 10%;
+    text-align: left;
+}
+
+.productPrice {
+    width: 15%;
+    text-align: right;
+}
+
+.btn-group {
+    font-size: 13px;
+    width: 25%;
+    float: right;
+    height: 30px;
+}
+
+.buy-btn {
+    background: dodgerblue;
+    width: 40%;
+    height: 100%;
+    float: right;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    transition: all 0.2s linear;
+}
+
+.buy-btn:hover {
+    background: #4ba6ff;
+}
+
+.del-btn {
+    width: 40%;
+    height: 100%;
+    float: right;
+    border-radius: 5px;
+    border: 0;
+    transition: all 0.2s linear;
+}
+
+.del-btn:hover {
+    background: red;
+}
+
+.pay-btn-group {
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+    display: inline-flex;
+}
+
+button {
+    font-weight: bold;
+}
+
+.all-btn {
+    width: 50%;
+}
+
+.all-buy-btn {
+    width: 60%;
+    height: 100%;
+    float: left;
+    margin-left: 60px;
+    border: 0;
+    background: dodgerblue;
+    border-radius: 10px;
+    color: white;
+    transition: all 0.2s linear;
+}
+
+.all-buy-btn:hover {
+    background: #4ba6ff;
+}
+
+.all-del-btn{
+    width: 60%;
+    height: 100%;
+    float: right;
+    margin-right: 60px;
+    border-radius: 10px;
+    transition: all 0.2s linear;
+}
+
+.all-del-btn:hover {
+    background: red;
+}
+
+.subtotal-box {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+}
+
+.subtotal {
+    width: 50%;
+    text-align: left;
+}
+
+.all-price {
+    width: 50%;
+    text-align: right;
+}
+
+.total-box {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.total {
+    width: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    border-top: solid 1px gray;
+    padding: 10px;
+}
+
+.total.price {
+    text-align: right;
+}
+
+.pay-box {
+    padding: 10px;
+}
+
+.info-box {
+    display: flex;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: solid 1px darkgray;
+} 
+
+.pay-img {
+    display: flex;
+    float: left;
+    width: 200px;
+    height: 200px;
+}
+
+.pay-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 4px 12px gray;
+}
+
+.pay-info {
+    width: 388px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.price-info {
+    padding: 10px;
+    padding-top: 20px;
+}
+
+li {
+    width: 100%;
+    padding: 5px;
+    display: inline-flex;
+    font-size: 17px;
+}
+
+.price-left {
+    width: 50%;
+}
+
+.price-right {
+    padding-right: 0;
+    /* padding-left: 410px; */
+    width: 50%;
+    text-align: right;
+}
+
+li .shoong {
+    /* padding-left: 464px; */
+    padding-bottom: 20px;
+    text-align: right;
+}
+
+.btn-box {
+    width: 100%;
+    height: 50px;
+    padding-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.payment {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 0;
+}
+
+.pay-basket {
+    background-color: white;
+    border: solid 1px gray;
+    float: left;
+}
+
+.pay {
+    background-color: dodgerblue;
+    color: white;
+    float: right;
+    transition: all 0.2s linear;
+}
+
+.pay:hover {
+    background: #4ba6ff;
+}
+
+.pay-brand {
+    width: 100%;
+    display: flex;
+}
+
+.pay-name {
+    width: 100%;
+    display: flex;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.pay-count {
+    width: 60%;
+    text-align: right;
+}
+
+.pay-price {
+    width: 40%;
+    text-align: right;
+}

@@ -1,0 +1,66 @@
+<template>
+    <div class="search">
+        <div class="search-item">
+            <lightning-combobox
+                name="brand"
+                value={brand}
+                placeholder="브랜드"
+                options={brandOptions}
+                onchange={brandChange}>
+            </lightning-combobox>
+        </div>
+        <div class="search-item">
+            <lightning-combobox
+                name="keyboardType"
+                value={keyboardType}
+                placeholder="키보드 타입"
+                options={keyboardTypeOptions}
+                onchange={keyboardTypeChange}>
+            </lightning-combobox>
+        </div>
+        <div class="search-item" style="width: 75%;">
+            <lightning-input type="search"></lightning-input>
+        </div>
+        <div class="search-item" style="width: 5%;">
+            <lightning-button style="width: 100%;" variant="brand" label="검색" onclick={onSearch}></lightning-button>
+        </div>
+    </div>
+    <div class="filterBox">
+        <div style="float: right; margin-top: -20px;">
+            <lightning-combobox
+                name="filter"
+                value={filter}
+                options={filterOptions}
+                onchange={filterChange}>
+            </lightning-combobox>
+        </div>
+    </div>
+    <div class="contents">
+        <template iterator:it={item}>
+            <div key={it.value} class="contents-item" onclick={onDetailPage}>
+                <div class="contents-img" data-id={it.value.id}>
+                    <img src={it.value.img} data-id={it.value.id}>
+                </div>
+                <div class="contents-body" data-id={it.value.id}>{it.value.name}
+                    <div data-id={it.value.id}>키보드 축 : {it.value.keyboardType}</div>
+                </div>
+                <div class="contents-body" data-id={it.value.id} style="float: right; width:10%;">
+                    <div>평점 : {it.value.grade}</div>
+                    <div>리뷰 : {it.value.review}</div>
+                    {it.value.productPrice}원
+                </div>
+            </div>
+        </template>
+    </div>
+    <div class="pageNumBtnBox">
+        <button value="start" onclick={onArrowClick}>{start}</button>
+        <button value="prev" onclick={onArrowClick}>{prev}</button>
+        <template iterator:it={pageNumList}>
+            <div class="pageNumBtn" key={it.value}>
+                <button value={it.value} onclick={onPaging}>{it.value}</button>
+            </div>
+        </template>
+        <button value="next" onclick={onArrowClick}>></button>
+        <button value="end" onclick={onArrowClick}>>></button>
+    </div>
+</template>

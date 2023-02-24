@@ -1,0 +1,15 @@
+.slds-notify_toast div.slds-notify__close {
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+@media (max-width: 1023px) {
+    .slds-notify_container .slds-notify.slds-notify_toast {
+        min-width: unset;
+        width: 90%;
+    }
+
+    .slds-notify__content .slds-text-heading_small {
+        font-size: 14px;
+    }
+}

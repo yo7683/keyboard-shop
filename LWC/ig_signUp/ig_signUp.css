@@ -1,0 +1,115 @@
+h3 {
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.page-box {
+    text-align: center;
+    width: 1250px;
+    height: 1300px;
+}
+
+.register-box {
+    width: 900px;
+    height: 1020px;
+    margin: auto;
+    border: 2px solid black;
+    text-align: left;
+    padding: 5%;
+    border-radius: 20px;
+}
+
+.tag-space {
+    display: inline-block;
+    width: 150px;
+    height: 10px;
+}
+
+.margin-div {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.register-box span{
+    font-size: large;
+    font-weight: bolder;
+    font-style: inherit;
+}
+
+.email-input, .pwd-input, .pwd-valid-input, .phone-input {
+    font-size: larger;
+    width: 200px;
+}
+
+.phone-validate-btn {
+    margin-left: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+
+.nickname-validate-btn {
+    margin-left: 76px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+
+.confirm {
+    margin-left: 73px;
+}
+
+.terms-confirm {
+    width: 596px;
+    height: 300px;
+    border: 1px solid black;
+    overflow: scroll;
+    margin: auto;
+}
+
+.terms-confirm-checkbox {
+    width: 596px;    
+    margin: auto;
+    text-align: right;
+    padding-bottom: 60px;
+}
+
+.terms-checkbox {
+    display: inline-block;
+}
+
+.submit-box {
+    width: 596px;
+    margin: auto;
+    text-align: center;
+}
+
+.signUp-btn, .cancle-btn {
+    display: inline-flex;
+    width: 150px;
+    height: 60px;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-right: 20px;
+    border-radius: 20px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.signUp-btn {
+    background-color: black;
+    color: white;
+}
+
+.cancle-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}

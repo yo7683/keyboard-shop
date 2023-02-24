@@ -1,0 +1,11 @@
+<template>
+    <div class="sidebar-box">
+        <ul>
+            <template iterator:it={navItem}>
+                <li key={it.value}>
+                    <div class="sidebar-item" data-item={it.value.eName} onclick={handleItemNav}>{it.value.menu}</div>
+                </li>
+            </template>                        
+        </ul>
+    </div>
+</template>
